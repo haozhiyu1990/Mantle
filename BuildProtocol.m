@@ -7,6 +7,8 @@
 //
 
 #import "BuildProtocol.h"
+#import "NSString+HzyExtension.h"
+#import "NSDate+HzyExtension.h"
 
 @implementation BuildProtocol
 
@@ -15,11 +17,29 @@
 }
 
 - (NSString *)h {
-    return @"sdfdsf";
+    NSMutableString *code = [NSMutableString string];
+    code.LINE(@"//");
+    code.LINE(@"//  %@.h", self.fileName);
+    code.LINE(@"//");
+    code.LINE(@"//");
+    code.LINE(@"//  Created by haozhiyu on %@.", [[NSDate date] stringWithDateFormat:@"yyyy/MM/dd"]);
+    code.LINE(@"//  Copyright © %@年 haozhiyu. All rights reserved.", [[NSDate date] stringWithDateFormat:@"yyyy"]);
+    code.LINE(@"//");
+
+    return code;
 }
 
 - (NSString *)m {
-    return @"sdfsdf";
+    NSMutableString *code = [NSMutableString string];
+    code.LINE(@"//");
+    code.LINE(@"//  %@.m", self.fileName);
+    code.LINE(@"//");
+    code.LINE(@"//");
+    code.LINE(@"//  Created by haozhiyu on %@.", [[NSDate date] stringWithDateFormat:@"yyyy/MM/dd"]);
+    code.LINE(@"//  Copyright © %@年 haozhiyu. All rights reserved.", [[NSDate date] stringWithDateFormat:@"yyyy"]);
+    code.LINE(@"//");
+    
+    return code;
 }
 
 @end

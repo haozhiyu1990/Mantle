@@ -8,15 +8,15 @@
 
 #import "BuildHelper.h"
 #import "BuildProtocol.h"
+#import "NSDate+HzyExtension.h"
 
 @implementation BuildHelper
 
 - (BOOL)generate {
     
-    NSDateFormatter * dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyyMMdd_hhmmss"];
-    NSString *	date = [dateFormatter stringFromDate:[NSDate date]];
+    NSString *	date = [[NSDate date] stringWithDateFormat:@"yyyyMMdd_hhmmss"];
 
+    NSString *	fileName = nil;
     NSString *	inputFullPath = nil;
     NSString *	inputExtension = nil;
     NSString *	outputPath = nil;
@@ -24,14 +24,14 @@
     NSString *	outputFileH = nil;
     NSString *	outputFileM = nil;
 
-    
     inputFullPath = [NSString stringWithFormat:@"%@/%@", self.inputPath, self.inputFile];
     inputFullPath = [inputFullPath stringByReplacingOccurrencesOfString:@"//" withString:@"/"];
     inputExtension = [NSString stringWithFormat:@".%@", [inputFullPath pathExtension]];
+    fileName = [self.inputFile stringByDeletingPathExtension];
     
     outputPath = [NSString stringWithFormat:@"%@/%@", self.outputPath ? self.outputPath : self.inputPath, date];
     [self touch:[NSString stringWithFormat:@"%@", outputPath]];
-    outputFullPath = [NSString stringWithFormat:@"%@/%@", outputPath, self.inputFile];
+    outputFullPath = [NSString stringWithFormat:@"%@/%@%@", outputPath, [fileName capitalizedString], inputExtension];
     outputFullPath = [outputFullPath stringByReplacingOccurrencesOfString:@"//" withString:@"/"];
 
     outputFileH = [outputFullPath stringByReplacingOccurrencesOfString:inputExtension withString:@".h"];

@@ -12,7 +12,6 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         Build *build = [[Build alloc] init];
-        
         [build argc:argc argv:argv];
     }
     return 0;
