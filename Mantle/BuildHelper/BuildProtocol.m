@@ -13,6 +13,15 @@
 @implementation BuildProtocol
 
 - (BOOL)parseString:(NSString *)content {
+    NSData * data = [content dataUsingEncoding:NSUTF8StringEncoding];
+    NSError * err = nil;
+    id obj = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&err];
+    if (err) {
+        return NO;
+    }
+    
+    
+    
     return YES;
 }
 

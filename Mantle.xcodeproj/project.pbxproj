@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		E474E2AC1E56F1100048FBFA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E474E2AB1E56F1100048FBFA /* main.m */; };
-		E474E2BC1E56F1620048FBFA /* Build.m in Sources */ = {isa = PBXBuildFile; fileRef = E474E2B31E56F1620048FBFA /* Build.m */; };
-		E474E2BD1E56F1620048FBFA /* BuildHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E474E2B51E56F1620048FBFA /* BuildHelper.m */; };
-		E474E2BE1E56F1620048FBFA /* BuildProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = E474E2B71E56F1620048FBFA /* BuildProtocol.m */; };
-		E474E2BF1E56F1620048FBFA /* NSDate+HzyExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E474E2B91E56F1620048FBFA /* NSDate+HzyExtension.m */; };
-		E474E2C01E56F1620048FBFA /* NSString+HzyExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E474E2BB1E56F1620048FBFA /* NSString+HzyExtension.m */; };
+		E474E2D01E56F6F30048FBFA /* Build.m in Sources */ = {isa = PBXBuildFile; fileRef = E474E2C31E56F6F30048FBFA /* Build.m */; };
+		E474E2D11E56F6F30048FBFA /* BuildHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E474E2C51E56F6F30048FBFA /* BuildHelper.m */; };
+		E474E2D21E56F6F30048FBFA /* BuildProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = E474E2C71E56F6F30048FBFA /* BuildProtocol.m */; };
+		E474E2D31E56F6F30048FBFA /* NSDate+HzyExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E474E2CA1E56F6F30048FBFA /* NSDate+HzyExtension.m */; };
+		E474E2D41E56F6F30048FBFA /* NSString+HzyExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E474E2CC1E56F6F30048FBFA /* NSString+HzyExtension.m */; };
+		E474E2D51E56F6F30048FBFA /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = E474E2CF1E56F6F30048FBFA /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,16 +31,18 @@
 /* Begin PBXFileReference section */
 		E474E2A81E56F1100048FBFA /* mantle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = mantle; sourceTree = BUILT_PRODUCTS_DIR; };
 		E474E2AB1E56F1100048FBFA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		E474E2B21E56F1620048FBFA /* Build.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Build.h; sourceTree = "<group>"; };
-		E474E2B31E56F1620048FBFA /* Build.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Build.m; sourceTree = "<group>"; };
-		E474E2B41E56F1620048FBFA /* BuildHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildHelper.h; sourceTree = "<group>"; };
-		E474E2B51E56F1620048FBFA /* BuildHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildHelper.m; sourceTree = "<group>"; };
-		E474E2B61E56F1620048FBFA /* BuildProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildProtocol.h; sourceTree = "<group>"; };
-		E474E2B71E56F1620048FBFA /* BuildProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildProtocol.m; sourceTree = "<group>"; };
-		E474E2B81E56F1620048FBFA /* NSDate+HzyExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+HzyExtension.h"; sourceTree = "<group>"; };
-		E474E2B91E56F1620048FBFA /* NSDate+HzyExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+HzyExtension.m"; sourceTree = "<group>"; };
-		E474E2BA1E56F1620048FBFA /* NSString+HzyExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HzyExtension.h"; sourceTree = "<group>"; };
-		E474E2BB1E56F1620048FBFA /* NSString+HzyExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HzyExtension.m"; sourceTree = "<group>"; };
+		E474E2C21E56F6F30048FBFA /* Build.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Build.h; sourceTree = "<group>"; };
+		E474E2C31E56F6F30048FBFA /* Build.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Build.m; sourceTree = "<group>"; };
+		E474E2C41E56F6F30048FBFA /* BuildHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildHelper.h; sourceTree = "<group>"; };
+		E474E2C51E56F6F30048FBFA /* BuildHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildHelper.m; sourceTree = "<group>"; };
+		E474E2C61E56F6F30048FBFA /* BuildProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildProtocol.h; sourceTree = "<group>"; };
+		E474E2C71E56F6F30048FBFA /* BuildProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildProtocol.m; sourceTree = "<group>"; };
+		E474E2C91E56F6F30048FBFA /* NSDate+HzyExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+HzyExtension.h"; sourceTree = "<group>"; };
+		E474E2CA1E56F6F30048FBFA /* NSDate+HzyExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+HzyExtension.m"; sourceTree = "<group>"; };
+		E474E2CB1E56F6F30048FBFA /* NSString+HzyExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HzyExtension.h"; sourceTree = "<group>"; };
+		E474E2CC1E56F6F30048FBFA /* NSString+HzyExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HzyExtension.m"; sourceTree = "<group>"; };
+		E474E2CE1E56F6F30048FBFA /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		E474E2CF1E56F6F30048FBFA /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,19 +75,45 @@
 		E474E2AA1E56F1100048FBFA /* Mantle */ = {
 			isa = PBXGroup;
 			children = (
-				E474E2B21E56F1620048FBFA /* Build.h */,
-				E474E2B31E56F1620048FBFA /* Build.m */,
-				E474E2B41E56F1620048FBFA /* BuildHelper.h */,
-				E474E2B51E56F1620048FBFA /* BuildHelper.m */,
-				E474E2B61E56F1620048FBFA /* BuildProtocol.h */,
-				E474E2B71E56F1620048FBFA /* BuildProtocol.m */,
-				E474E2B81E56F1620048FBFA /* NSDate+HzyExtension.h */,
-				E474E2B91E56F1620048FBFA /* NSDate+HzyExtension.m */,
-				E474E2BA1E56F1620048FBFA /* NSString+HzyExtension.h */,
-				E474E2BB1E56F1620048FBFA /* NSString+HzyExtension.m */,
+				E474E2C11E56F6F30048FBFA /* BuildHelper */,
+				E474E2C81E56F6F30048FBFA /* ClassCategory */,
+				E474E2CD1E56F6F30048FBFA /* JSONKit */,
 				E474E2AB1E56F1100048FBFA /* main.m */,
 			);
 			path = Mantle;
+			sourceTree = "<group>";
+		};
+		E474E2C11E56F6F30048FBFA /* BuildHelper */ = {
+			isa = PBXGroup;
+			children = (
+				E474E2C21E56F6F30048FBFA /* Build.h */,
+				E474E2C31E56F6F30048FBFA /* Build.m */,
+				E474E2C41E56F6F30048FBFA /* BuildHelper.h */,
+				E474E2C51E56F6F30048FBFA /* BuildHelper.m */,
+				E474E2C61E56F6F30048FBFA /* BuildProtocol.h */,
+				E474E2C71E56F6F30048FBFA /* BuildProtocol.m */,
+			);
+			path = BuildHelper;
+			sourceTree = "<group>";
+		};
+		E474E2C81E56F6F30048FBFA /* ClassCategory */ = {
+			isa = PBXGroup;
+			children = (
+				E474E2C91E56F6F30048FBFA /* NSDate+HzyExtension.h */,
+				E474E2CA1E56F6F30048FBFA /* NSDate+HzyExtension.m */,
+				E474E2CB1E56F6F30048FBFA /* NSString+HzyExtension.h */,
+				E474E2CC1E56F6F30048FBFA /* NSString+HzyExtension.m */,
+			);
+			path = ClassCategory;
+			sourceTree = "<group>";
+		};
+		E474E2CD1E56F6F30048FBFA /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				E474E2CE1E56F6F30048FBFA /* JSONKit.h */,
+				E474E2CF1E56F6F30048FBFA /* JSONKit.m */,
+			);
+			path = JSONKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,12 +173,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E474E2BE1E56F1620048FBFA /* BuildProtocol.m in Sources */,
-				E474E2BC1E56F1620048FBFA /* Build.m in Sources */,
+				E474E2D21E56F6F30048FBFA /* BuildProtocol.m in Sources */,
+				E474E2D01E56F6F30048FBFA /* Build.m in Sources */,
 				E474E2AC1E56F1100048FBFA /* main.m in Sources */,
-				E474E2C01E56F1620048FBFA /* NSString+HzyExtension.m in Sources */,
-				E474E2BF1E56F1620048FBFA /* NSDate+HzyExtension.m in Sources */,
-				E474E2BD1E56F1620048FBFA /* BuildHelper.m in Sources */,
+				E474E2D41E56F6F30048FBFA /* NSString+HzyExtension.m in Sources */,
+				E474E2D31E56F6F30048FBFA /* NSDate+HzyExtension.m in Sources */,
+				E474E2D51E56F6F30048FBFA /* JSONKit.m in Sources */,
+				E474E2D11E56F6F30048FBFA /* BuildHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
