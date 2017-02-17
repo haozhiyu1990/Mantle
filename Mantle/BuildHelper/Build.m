@@ -49,7 +49,15 @@
         [_arguments addObject:arg];
     }
     
-    [self build];
+    if (self.arguments.count != 0) {
+        for (NSString * string in self.arguments) {
+            if ([string isEqualToString:@"build"]) {
+                [self build];
+            }
+        }
+    } else {
+        fprintf( stderr , "操作格式有误\n");
+    }
 }
 
 - (void)logo {
@@ -74,6 +82,16 @@
     NSString * inputPath = [self fileArgumentAtIndex:1];
     NSString * outputPath = [self pathArgumentAtIndex:1];
 
+    if (inputPath == nil) {
+        fprintf( stderr , "请传入文件名\n");
+        return;
+    }
+    
+    if (inputPath == nil) {
+        fprintf( stderr , "请传入文件名\n");
+        return;
+    }
+    
     BuildHelper *helper = [[BuildHelper alloc] init];
     helper.inputPath = [inputPath stringByDeletingLastPathComponent];
     helper.inputFile = [inputPath lastPathComponent];

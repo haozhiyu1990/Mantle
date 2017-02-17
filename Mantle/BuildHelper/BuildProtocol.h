@@ -10,9 +10,9 @@
 
 @interface BuildProtocol : NSObject
 
-@property (copy, nonatomic) NSString * fileName;
-@property (nonatomic, strong) NSMutableArray *classNameArr;
-@property (nonatomic, strong) NSMutableDictionary *classDic;
+@property (copy, nonatomic) NSString                * fileName;
+@property (nonatomic, strong) NSMutableArray        * classNameArr;
+@property (nonatomic, strong) NSMutableDictionary   * classDic;
 
 - (BOOL)parseString:(NSString *)content;
 - (NSString *)h;
