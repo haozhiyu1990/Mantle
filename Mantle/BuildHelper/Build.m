@@ -8,6 +8,7 @@
 
 #import "Build.h"
 #import "BuildHelper.h"
+#import "Logo.h"
 
 @implementation Build
 
@@ -29,6 +30,9 @@
 }
 
 - (void)argc:(int)argc argv:(const char * [])argv {
+    
+    [self logo];
+    
     if ( 0 == argc )
         return;
     
@@ -46,6 +50,24 @@
     }
     
     [self build];
+}
+
+- (void)logo {
+    Logo * logo = [Logo shareInstance];
+    logo.GREEN().LINE(nil);
+    logo.GREEN().LINE(nil);
+    
+    logo.GREEN().LINE(@"     __     __        _______         __    __");
+    logo.GREEN().LINE(@"    /\\ \\   /\\ \\      /\\_____ \\       /\\ \\  / /");
+    logo.GREEN().LINE(@"    \\ \\ \\__\\_\\ \\     \\/____/ /       \\ \\ \\/ /");
+    logo.GREEN().LINE(@"     \\ \\  _____ \\         / /         \\ \\/ /");
+    logo.GREEN().LINE(@"      \\ \\ \\__/ \\ \\       / /_____      \\/ /");
+    logo.GREEN().LINE(@"       \\ \\_\\  \\ \\_\\     /\\_______\\     / /");
+    logo.GREEN().LINE(@"        \\/_/   \\/_/     \\/_______/    /\\/");
+    logo.GREEN().LINE(@"                                      \\/");
+
+    logo.GREEN().LINE(nil);
+    logo.GREEN().LINE(nil);
 }
 
 - (void)build {
