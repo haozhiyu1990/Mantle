@@ -31,7 +31,7 @@
     
     outputPath = [NSString stringWithFormat:@"%@/%@", self.outputPath ? self.outputPath : self.inputPath, date];
     [self touch:[NSString stringWithFormat:@"%@", outputPath]];
-    outputFullPath = [NSString stringWithFormat:@"%@/%@%@", outputPath, [fileName capitalizedString], inputExtension];
+    outputFullPath = [NSString stringWithFormat:@"%@/%@%@", outputPath, fileName, inputExtension];
     outputFullPath = [outputFullPath stringByReplacingOccurrencesOfString:@"//" withString:@"/"];
 
     outputFileH = [outputFullPath stringByReplacingOccurrencesOfString:inputExtension withString:@".h"];
