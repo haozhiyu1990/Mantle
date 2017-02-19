@@ -51,6 +51,7 @@
     
     if (self.arguments.count != 0) {
         if (![self.arguments containsObject:@"build"]) {
+            [self helper];
             [Logo shareInstance].RED().LINE(@"操作格式有误");
             return;
         }
@@ -60,14 +61,57 @@
             }
         }
     } else {
+        [self helper];
         [Logo shareInstance].RED().LINE(@"操作格式有误");
     }
+}
+
+- (void)helper {
+    [Logo shareInstance].GREEN().LINE(nil);
+    [Logo shareInstance].GREEN().LINE(nil);
+    [Logo shareInstance].GREEN().LINE(@"./mantle build xxx.json   xxx 是文件名，也是生成的类名");
+    [Logo shareInstance].GREEN().LINE(@".json 文件的格式应该如下：");
+    [Logo shareInstance].GREEN().LINE(@"{");
+    [Logo shareInstance].GREEN().LINE(@"  \"model\": {");
+    [Logo shareInstance].GREEN().LINE(@"    \"key1\": \"value1\",     // NSString ");
+    [Logo shareInstance].GREEN().LINE(@"    \"key2\": 100,     // NSNumber ");
+    [Logo shareInstance].GREEN().LINE(@"    \"key3\": true,     // BOOL ");
+    [Logo shareInstance].GREEN().LINE(@"    \"key4\": \"{Class1}\",     // NSDictionary 返回的字典，是另一个类，");
+    [Logo shareInstance].GREEN().LINE(@"                  {}里写类的类名，在class下写出该类对应的属性    类名建议驼峰命名");
+    [Logo shareInstance].GREEN().LINE(@"    \"key5\": [\"{Class2}\"],     // NSArray 返回的数组，数组里的每个元素是一个类，");
+    [Logo shareInstance].GREEN().LINE(@"                  {}里写类的类名，在class下写出该类对应的属性    类名建议驼峰命名");
+    [Logo shareInstance].GREEN().LINE(@"    \"...\": \"...\"");
+    [Logo shareInstance].GREEN().LINE(@"  },");
+    [Logo shareInstance].GREEN().LINE(@"  \"class\": {");
+    [Logo shareInstance].GREEN().LINE(@"    \"Class1\": {");
+    [Logo shareInstance].GREEN().LINE(@"      \"key1\": \"value1\",     // NSString ");
+    [Logo shareInstance].GREEN().LINE(@"      \"key2\": 100,     // NSNumber ");
+    [Logo shareInstance].GREEN().LINE(@"      \"key3\": true,     // BOOL ");
+    [Logo shareInstance].GREEN().LINE(@"      \"key4\": \"{Class3}\",");
+    [Logo shareInstance].GREEN().LINE(@"      \"...\": \"...\"");
+    [Logo shareInstance].GREEN().LINE(@"    },");
+    [Logo shareInstance].GREEN().LINE(@"    \"Class2\": {");
+    [Logo shareInstance].GREEN().LINE(@"      \"key1\": \"value1\",     // NSString ");
+    [Logo shareInstance].GREEN().LINE(@"      \"key2\": 100,     // NSNumber ");
+    [Logo shareInstance].GREEN().LINE(@"      \"key3\": true,     // BOOL ");
+    [Logo shareInstance].GREEN().LINE(@"      \"...\": \"...\"");
+    [Logo shareInstance].GREEN().LINE(@"    },");
+    [Logo shareInstance].GREEN().LINE(@"    \"Class3\": {");
+    [Logo shareInstance].GREEN().LINE(@"      \"key1\": \"value1\",     // NSString ");
+    [Logo shareInstance].GREEN().LINE(@"      \"key2\": 100,     // NSNumber ");
+    [Logo shareInstance].GREEN().LINE(@"      \"key3\": true,     // BOOL ");
+    [Logo shareInstance].GREEN().LINE(@"      \"...\": \"...\"");
+    [Logo shareInstance].GREEN().LINE(@"    }");
+    [Logo shareInstance].GREEN().LINE(@"  }");
+    [Logo shareInstance].GREEN().LINE(@"}");
+    [Logo shareInstance].GREEN().LINE(nil);
+    [Logo shareInstance].GREEN().LINE(@"操作格式应如上：");
+    [Logo shareInstance].GREEN().LINE(nil);
 }
 
 - (void)logo {
     [Logo shareInstance].GREEN().LINE(nil);
     [Logo shareInstance].GREEN().LINE(nil);
-    
     [Logo shareInstance].GREEN().LINE(@"     __     __        _______         __    __");
     [Logo shareInstance].GREEN().LINE(@"    /\\ \\   /\\ \\      /\\_____ \\       /\\ \\  / /");
     [Logo shareInstance].GREEN().LINE(@"    \\ \\ \\__\\_\\ \\     \\/____/ /       \\ \\ \\/ /");
@@ -76,7 +120,6 @@
     [Logo shareInstance].GREEN().LINE(@"       \\ \\_\\  \\ \\_\\     /\\_______\\     / /");
     [Logo shareInstance].GREEN().LINE(@"        \\/_/   \\/_/     \\/_______/    /\\/");
     [Logo shareInstance].GREEN().LINE(@"                                      \\/");
-
     [Logo shareInstance].GREEN().LINE(nil);
     [Logo shareInstance].GREEN().LINE(nil);
 }
@@ -102,6 +145,7 @@
 
     BOOL succ = [helper generate];
     if (!succ) {
+        [self helper];
         [Logo shareInstance].RED().LINE(@"文件有误");
     } else {
         [Logo shareInstance].RED().LINE(@"成功！！！");
