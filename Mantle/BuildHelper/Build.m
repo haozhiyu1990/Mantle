@@ -56,26 +56,25 @@
             }
         }
     } else {
-        fprintf( stderr , "操作格式有误\n");
+        [Logo shareInstance].RED().LINE(@"操作格式有误");
     }
 }
 
 - (void)logo {
-    Logo * logo = [Logo shareInstance];
-    logo.GREEN().LINE(nil);
-    logo.GREEN().LINE(nil);
+    [Logo shareInstance].GREEN().LINE(nil);
+    [Logo shareInstance].GREEN().LINE(nil);
     
-    logo.GREEN().LINE(@"     __     __        _______         __    __");
-    logo.GREEN().LINE(@"    /\\ \\   /\\ \\      /\\_____ \\       /\\ \\  / /");
-    logo.GREEN().LINE(@"    \\ \\ \\__\\_\\ \\     \\/____/ /       \\ \\ \\/ /");
-    logo.GREEN().LINE(@"     \\ \\  _____ \\         / /         \\ \\/ /");
-    logo.GREEN().LINE(@"      \\ \\ \\__/ \\ \\       / /_____      \\/ /");
-    logo.GREEN().LINE(@"       \\ \\_\\  \\ \\_\\     /\\_______\\     / /");
-    logo.GREEN().LINE(@"        \\/_/   \\/_/     \\/_______/    /\\/");
-    logo.GREEN().LINE(@"                                      \\/");
+    [Logo shareInstance].GREEN().LINE(@"     __     __        _______         __    __");
+    [Logo shareInstance].GREEN().LINE(@"    /\\ \\   /\\ \\      /\\_____ \\       /\\ \\  / /");
+    [Logo shareInstance].GREEN().LINE(@"    \\ \\ \\__\\_\\ \\     \\/____/ /       \\ \\ \\/ /");
+    [Logo shareInstance].GREEN().LINE(@"     \\ \\  _____ \\         / /         \\ \\/ /");
+    [Logo shareInstance].GREEN().LINE(@"      \\ \\ \\__/ \\ \\       / /_____      \\/ /");
+    [Logo shareInstance].GREEN().LINE(@"       \\ \\_\\  \\ \\_\\     /\\_______\\     / /");
+    [Logo shareInstance].GREEN().LINE(@"        \\/_/   \\/_/     \\/_______/    /\\/");
+    [Logo shareInstance].GREEN().LINE(@"                                      \\/");
 
-    logo.GREEN().LINE(nil);
-    logo.GREEN().LINE(nil);
+    [Logo shareInstance].GREEN().LINE(nil);
+    [Logo shareInstance].GREEN().LINE(nil);
 }
 
 - (void)build {
@@ -83,12 +82,12 @@
     NSString * outputPath = [self pathArgumentAtIndex:1];
 
     if (inputPath == nil) {
-        fprintf( stderr , "请传入文件名\n");
+        [Logo shareInstance].RED().LINE(@"请传入文件名");
         return;
     }
     
     if (inputPath == nil) {
-        fprintf( stderr , "请传入文件名\n");
+        [Logo shareInstance].RED().LINE(@"请传入文件名");
         return;
     }
     
@@ -99,7 +98,9 @@
 
     BOOL succ = [helper generate];
     if (!succ) {
-        fprintf( stderr , "文件有误\n");
+        [Logo shareInstance].RED().LINE(@"文件有误");
+    } else {
+        [Logo shareInstance].RED().LINE(@"成功！！！");
     }
 }
 
