@@ -50,6 +50,10 @@
     }
     
     if (self.arguments.count != 0) {
+        if (![self.arguments containsObject:@"build"]) {
+            [Logo shareInstance].RED().LINE(@"操作格式有误");
+            return;
+        }
         for (NSString * string in self.arguments) {
             if ([string isEqualToString:@"build"]) {
                 [self build];
