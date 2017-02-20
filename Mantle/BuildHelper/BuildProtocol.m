@@ -52,6 +52,8 @@
 
 - (NSString *)h {
     NSMutableString *code = [NSMutableString string];
+    self.memberIsArrList = [NSMutableDictionary dictionary];
+
     code.LINE(@"//");
     code.LINE(@"//  %@.h", self.fileName);
     code.LINE(@"//");
@@ -88,7 +90,11 @@
             } else if ([[[self.classDic objectForKey:currentClassName] objectForKey:member] isKindOfClass:[NSNumber class]]) {
                 code.LINE(@"@property (nonatomic, strong) \t\t\t\tNSNumber \t\t\t\t* %@;", member);
             } else if ([[[self.classDic objectForKey:currentClassName] objectForKey:member] isKindOfClass:[NSArray class]]) {
+                NSArray *arr = [[self.classDic objectForKey:currentClassName] objectForKey:member];
+                NSString *memberDicName = [arr firstObject];
+                memberDicName = [memberDicName substringWithRange:NSMakeRange(1, memberDicName.length-2)];
                 code.LINE(@"@property (nonatomic, strong) \t\t\t\tNSArray \t\t\t\t* %@;", member);
+                [self.memberIsArrList setObject:memberDicName forKey:member];
             }
         }
         code.LINE(nil);
@@ -129,8 +135,20 @@
                 code.LINE(@"\t\t\t\t@\"%@\" : @\"%@\",", memberArr[i], memberArr[i]);
             }
         }
+        
         code.LINE(@"\t\t\t\t};");
         code.LINE(@"}");
+        code.LINE(nil);
+        for (NSString * member in [[self.classDic objectForKey:currentClassName] allKeys]) {
+            for (NSString * memberDic in [self.memberIsArrList allKeys]) {
+                if ([member isEqualToString:memberDic]) {
+                    code.LINE(@"+ (NSValueTransformer *)%@JSONTransformer {", member);
+                    code.LINE(@"\treturn [MTLJSONAdapter arrayTransformerWithModelClass:%@.class];", [self.memberIsArrList objectForKey:member]);
+                    code.LINE(@"}");
+                    code.LINE(nil);
+                }
+            }
+        }
         code.LINE(nil);
         code.LINE(@"@end");
         code.LINE(nil);

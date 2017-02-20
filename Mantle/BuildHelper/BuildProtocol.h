@@ -13,6 +13,7 @@
 @property (copy, nonatomic) NSString                * fileName;
 @property (nonatomic, strong) NSMutableArray        * classNameArr;
 @property (nonatomic, strong) NSMutableDictionary   * classDic;
+@property (nonatomic, strong) NSMutableDictionary        * memberIsArrList;
 
 - (BOOL)parseString:(NSString *)content;
 - (NSString *)h;
