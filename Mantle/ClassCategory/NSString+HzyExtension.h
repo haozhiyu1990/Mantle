@@ -24,6 +24,8 @@ typedef NSMutableString *	(^NSMutableStringReplaceBlock)( NSString * string, NSS
 @property (nonatomic, readonly) NSStringAppendBlock             LINE;
 @property (nonatomic, readonly) NSStringReplaceBlock            REPLACE;
 
+- (BOOL)isKeywords;
+
 @end
 
 #pragma mark -

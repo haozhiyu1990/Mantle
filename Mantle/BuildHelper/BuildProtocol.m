@@ -79,22 +79,24 @@
         for (NSString * member in [[self.classDic objectForKey:currentClassName] allKeys]) {
             if ([[[self.classDic objectForKey:currentClassName] objectForKey:member] isKindOfClass:[NSString class]]) {
                 if ([[[self.classDic objectForKey:currentClassName] objectForKey:member] isEqualToString:@"bool"]) {
-                    code.LINE(@"@property (nonatomic, assign) \t\t\t\tBOOL \t\t\t\t\t  %@;", member);
+                    code.LINE(@"@property (nonatomic, assign) \t\t\t\tBOOL \t\t\t\t\t  %@;", [member isKeywords] ? [member uppercaseString] : member);
                 } else if ([[[self.classDic objectForKey:currentClassName] objectForKey:member] hasPrefix:@"{"] && [[[self.classDic objectForKey:currentClassName] objectForKey:member] hasSuffix:@"}"]) {
                     NSString * className = [[self.classDic objectForKey:currentClassName] objectForKey:member];
                     className = [className substringWithRange:NSMakeRange(1, className.length-2)];
-                    code.LINE(@"@property (nonatomic, strong) \t\t\t\t%@ \t\t\t\t* %@;", className, member);
+                    code.LINE(@"@property (nonatomic, strong) \t\t\t\t%@ \t\t\t\t* %@;", className, [member isKeywords] ? [member uppercaseString] : member);
                 } else {
-                    code.LINE(@"@property (nonatomic, copy) \t\t\t\tNSString \t\t\t\t* %@;", member);
+                    code.LINE(@"@property (nonatomic, copy) \t\t\t\tNSString \t\t\t\t* %@;", [member isKeywords] ? [member uppercaseString] : member);
                 }
             } else if ([[[self.classDic objectForKey:currentClassName] objectForKey:member] isKindOfClass:[NSNumber class]]) {
-                code.LINE(@"@property (nonatomic, strong) \t\t\t\tNSNumber \t\t\t\t* %@;", member);
+                code.LINE(@"@property (nonatomic, strong) \t\t\t\tNSNumber \t\t\t\t* %@;", [member isKeywords] ? [member uppercaseString] : member);
             } else if ([[[self.classDic objectForKey:currentClassName] objectForKey:member] isKindOfClass:[NSArray class]]) {
                 NSArray *arr = [[self.classDic objectForKey:currentClassName] objectForKey:member];
                 NSString *memberDicName = [arr firstObject];
-                memberDicName = [memberDicName substringWithRange:NSMakeRange(1, memberDicName.length-2)];
-                code.LINE(@"@property (nonatomic, strong) \t\t\t\tNSArray \t\t\t\t* %@;", member);
-                [self.memberIsArrList setObject:memberDicName forKey:member];
+                if ([memberDicName hasPrefix:@"{"] && [memberDicName hasSuffix:@"}"]) {
+                    memberDicName = [memberDicName substringWithRange:NSMakeRange(1, memberDicName.length-2)];
+                    [self.memberIsArrList setObject:memberDicName forKey:member];
+                }
+                code.LINE(@"@property (nonatomic, strong) \t\t\t\tNSArray \t\t\t\t* %@;", [member isKeywords] ? [member uppercaseString] : member);
             }
         }
         code.LINE(nil);
@@ -129,10 +131,11 @@
         code.LINE(@"\treturn\t\t@{");
         NSArray *memberArr = [[self.classDic objectForKey:currentClassName] allKeys];
         for (int i=0; i<memberArr.count; i++) {
+            NSString *member = memberArr[i];
             if (i == memberArr.count-1) {
-                code.LINE(@"\t\t\t\t@\"%@\" : @\"%@\"", memberArr[i], memberArr[i]);
+                code.LINE(@"\t\t\t\t@\"%@\" : @\"%@\"", [member isKeywords] ? [member uppercaseString] : member, member);
             } else {
-                code.LINE(@"\t\t\t\t@\"%@\" : @\"%@\",", memberArr[i], memberArr[i]);
+                code.LINE(@"\t\t\t\t@\"%@\" : @\"%@\",", [member isKeywords] ? [member uppercaseString] : member, member);
             }
         }
         

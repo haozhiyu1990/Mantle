@@ -71,6 +71,13 @@
     return [block copy];
 }
 
+- (BOOL)isKeywords {
+    if ([self isEqualToString:@"description"] || [self isEqualToString:@"id"] || [self isEqualToString:@"class"]) {
+        return YES;
+    }
+    return NO;
+}
+
 @end
 
 #pragma mark -
