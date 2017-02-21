@@ -95,8 +95,10 @@
                 if ([memberDicName hasPrefix:@"{"] && [memberDicName hasSuffix:@"}"]) {
                     memberDicName = [memberDicName substringWithRange:NSMakeRange(1, memberDicName.length-2)];
                     [self.memberIsArrList setObject:memberDicName forKey:member];
+                    code.LINE(@"@property (nonatomic, strong) \t\t\t\tNSArray<%@ *> \t\t\t\t* %@;",memberDicName , [member isKeywords] ? [member uppercaseString] : member);
+                } else {
+                    code.LINE(@"@property (nonatomic, strong) \t\t\t\tNSArray \t\t\t\t* %@;", [member isKeywords] ? [member uppercaseString] : member);
                 }
-                code.LINE(@"@property (nonatomic, strong) \t\t\t\tNSArray \t\t\t\t* %@;", [member isKeywords] ? [member uppercaseString] : member);
             }
         }
         code.LINE(nil);
